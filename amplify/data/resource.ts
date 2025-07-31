@@ -11,7 +11,7 @@ const schema = a.schema({
   sayHello: a.query().arguments({
     name: a.string()
   }).returns(a.string()).handler(a.handler.function(sayHello)).authorization((allow) => [
-    allow.publicApiKey()
+    allow.guest() // Allow unauthenticated users to call this function
   ]),
   Todo: a
     .model({
